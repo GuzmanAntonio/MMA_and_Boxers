@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(require('./config/error-handler'))
 
-app.post('/api/fighters', (req, res) => {
+app.post('/api/mma-fighters', (req, res) => {
   const {name, img, height, division, record} = req.body
   const newFighter = {name, img, height, division, record}
 
@@ -26,7 +26,7 @@ app.post('/api/fighters', (req, res) => {
   })
 })
 
-app.get('/api/fighters', (req, res) => {
+app.get('/api/mma-fighters', (req, res) => {
   Fighters.find((err, fighters) => {
     if (err) {
       res.json({error: err})
@@ -36,13 +36,13 @@ app.get('/api/fighters', (req, res) => {
   })
 })
 
-app.get('/api/fighters/:fighterId', (req, res) => {
+app.get('/api/mma-fighters/:fighterId', (req, res) => {
   const fighterId = req.params.fighterId
   Fighters.findById({_id: fighterId}, (err, fighter) => {
     if (err) {
       res.json({error: err})
     } else {
-      res.json({msg: 'SUCCESS', fighter})
+      res.json({msg: 'FOUND', fighter})
     }
   })
 })
@@ -53,7 +53,54 @@ app.delete('/api/fighters/:deleteId', (req, res) => {
     if (err) {
       res.json({error: err})
     } else {
-      res.json({msg: 'SUCESS', fighter})
+      res.json({msg: 'DELETED', fighter})
+    }
+  })
+})
+
+/// ///////////  BOXERS /////////////////////
+
+app.post('/api/boxers', (req, res) => {
+  const {name, img, height, division, record} = req.body
+  const newBoxer = {name, img, height, division, record}
+
+  Fighters(newBoxer).save((err, savedBoxer) => {
+    if (err) {
+      res.json({error: err})
+    } else {
+      res.json({msg: 'SUCCESS', savedBoxer})
+    }
+  })
+})
+
+app.get('/api/boxers', (req, res) => {
+  Fighters.find((err, boxers) => {
+    if (err) {
+      res.json({error: err})
+    } else {
+      res.json({msg: 'SUCCESS', boxers})
+    }
+  })
+})
+
+app.get('/api/boxers/:boxerId', (req, res) => {
+  const boxerId = req.params.boxerId
+  Fighters.findById({_id: boxerId}, (err, boxer) => {
+    if (err) {
+      res.json({error: err})
+    } else {
+      res.json({msg: 'FOUND', boxer})
+    }
+  })
+})
+
+app.delete('/api/boxers/:deleteBoxer', (req, res) => {
+  const deleteBoxer = req.params.deleteBoxer
+  Fighters.remove({_id: deleteBoxer}, (err, boxer) => {
+    if (err) {
+      res.json({error: err})
+    } else {
+      res.json({msg: 'DELETED', boxer})
     }
   })
 })

@@ -8,9 +8,19 @@ const styles = {
   }
 }
 
-const MMAfighters = () =>
-  <div style={styles.container}>
-    <h3>MMA Fighters</h3>
-  </div>
+const MMAfighters = ({fighters}) => {
+  return (
+    <div style={styles.container}>
+      <h3>MMA Fighters</h3>
+      {
+        fighters.map(fighter => {
+          return (
+            <p>{fighter.name}</p>
+          )
+        })
+      }
+    </div>
+  )
+}
 
 export default MMAfighters

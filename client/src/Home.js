@@ -4,13 +4,14 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    color: '#6C7A89'
   }
 }
 
 const Home = () => 
   <div style={styles.container}>
-    <h3>Home</h3>
+    <h2>Home</h2>
   </div>
 
 export default Home
