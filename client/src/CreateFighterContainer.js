@@ -9,7 +9,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-    background: '#ecf0f1',
     width: '100vw'
   }
 }
@@ -19,7 +18,8 @@ const formStyle = {
     background: '#bdc3c7',
     display: 'flex',
     flexDirection: 'column',
-    width: '100vw'
+    width: '100vw',
+    marginTop: '10px'
   }
 }
 
@@ -28,6 +28,13 @@ const labelStyle = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column'
+  }
+}
+
+const titleStyle = {
+  container: {
+    color: '#ECF0F1',
+    textShadow: '2px 4px 8px #000000'
   }
 }
 
@@ -63,7 +70,7 @@ class CreateFighterContainer extends Component {
   render () {
     return (
       <div style={styles.container}>
-        <h2> Create Fighter </h2>
+        <h2 style={titleStyle.container}> Create Fighter </h2>
         <form style={formStyle.container}>
           <div style={labelStyle.container}>
             <label>Name </label>

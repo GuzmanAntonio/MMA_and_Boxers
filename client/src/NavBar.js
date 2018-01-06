@@ -36,10 +36,10 @@ const linkStyle = {
 const NavBar = () =>
   <div style={styles.container}>
     <nav style={navStyle.container}>
-      <Link to='/' style={linkStyle.container}> Home </Link>
-      <Link to='/mma-fighters' style={linkStyle.container}>  MMA-Fighters </Link>
-      <Link to='/boxers' style={linkStyle.container}> Boxers </Link>
-      <Link to='/create-fighter' style={linkStyle.container}> Create A Fighter </Link>
+      <Link to='/' style={linkStyle.container}> ●Home </Link>
+      <Link to='/mma-fighters' style={linkStyle.container}> ●MMA-Fighters </Link>
+      <Link to='/boxers' style={linkStyle.container}> ●Boxers </Link>
+      <Link to='/create-fighter' style={linkStyle.container}> ●Create-Fighter </Link>
     </nav>
   </div>
 

@@ -5,11 +5,12 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    color: '#6C7A89'
+    color: '#ECF0F1',
+    textShadow: '2px 4px 8px #000000'
   }
 }
 
-const Home = () => 
+const Home = () =>
   <div style={styles.container}>
     <h2>Home</h2>
   </div>

@@ -16,7 +16,9 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '100vw'
+    width: '100vw',
+    background: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
+    height: '100vh'
   }
 }
 
@@ -27,6 +29,16 @@ class App extends Component {
 
   componentDidMount () {
     this.loadMMAFromServer()
+  }
+
+  deleteMMAFighter = (fighter) => {
+    $.ajax({
+      url: `/api/mma-fighters/${fighter._id}`,
+      method: 'DELETE',
+    }).done((response) => {
+      console.log(response)
+      this.loadMMAFromServer()
+    })
   }
 
   loadMMAFromServer = () => {
